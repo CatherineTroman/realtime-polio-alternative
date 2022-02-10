@@ -198,7 +198,7 @@ rule cat_sample_reports:
         temp_report = temp(config["output_path"] + "/temp/temp.csv")
     run:
         with open(output.temp_report,"w") as fw:
-            fw.write("Sample,Sabin1,Sabin2,Sabin3,Poliovirus1-wt,Poliovirus2-wt,Poliovirus3-wt,NonPolioEV,Unmapped,AmbiguousMapping\n")
+            fw.write("Sample,Sabin1,Sabin2,Sabin3,Poliovirus1-wt,Poliovirus2-wt,Poliovirus3-wt,nOPV2,nOPV2mut,VDPV2,NonPolioEV,Unmapped,AmbiguousMapping\n")
         file_string = ' '.join(input)
         shell("cat {output.temp_report} " + file_string + " > {output.csv}")
         for i in input:
