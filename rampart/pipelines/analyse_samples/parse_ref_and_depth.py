@@ -39,7 +39,12 @@ def count_and_return_analysis_dict(report,csv_out,sample):
     counts["WPV1"]=0
     counts["WPV2"]=0
     counts["WPV3"]=0
-    counts["NonPolioEV"]=0
+    counts["nOPV2"]=0
+    counts["nOPV2mut"]=0
+    counts["VDPV2"]=0
+    counts["NPEV"]=0
+    
+    
     counts["*"]=0
     counts["?"]=0
 
@@ -50,7 +55,10 @@ def count_and_return_analysis_dict(report,csv_out,sample):
         "WPV1": Counter(),
         "WPV2": Counter(),
         "WPV3": Counter(),
-        "NonPolioEV": Counter(),
+        "nOPV2": Counter(),
+        "nOPV2mut": Counter(),
+        "VDPV2": Counter(),
+        "NPEV": Counter(),
         "*": Counter(),
         "?": Counter()
     }
@@ -78,7 +86,7 @@ def count_and_return_analysis_dict(report,csv_out,sample):
 
     analysis_dict = {}
     for key in counts:
-        if key not in ['*',"?","NonPolioEV"]:
+        if key not in ['*',"?"]:
             if counts[key] > args.min_reads and 100*(counts[key]/total)> args.min_pcent:
             
                 top = detail_dict[key].most_common()[0]
